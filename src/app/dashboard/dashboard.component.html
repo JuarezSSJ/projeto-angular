@@ -1,0 +1,9 @@
+<form [formGroup]="selectCarForms">
+    <select formControlName='carId'>
+        <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
+            {{vehicle.vehicle}}
+        </option>
+    </select>
+</form>
+
+<img *ngIf="selectedVehicle" [src]="selectedVehicle.img">
