@@ -7,3 +7,19 @@
 </form>
 
 <img *ngIf="selectedVehicle" [src]="selectedVehicle.img">
+
+
+<form [formGroup]="vinForm">
+    <input [formControl]="vinForm.controls.vin">
+</form>
+
+<div class="carro" *ngIf="carroVin">
+    <ul>
+        <li>{{carroVin.id}}</li>
+        <li>{{carroVin.lat}}</li>
+        <li>{{carroVin.long}}</li>
+        <li>{{carroVin.nivelCombustivel}}</li>
+        <li>{{carroVin.odometro}}</li>
+        <li>{{carroVin.status}}</li>
+    </ul>
+</div>
