@@ -1,14 +1,30 @@
-<div class="geral">
-    <div class="parte1">
+<div class="principal">
+  <div class="img">
+    <img src="ranger.png" alt="" />
+  </div>
+  <div class="container-right">
+    <div class="login-container">
+      <div class="login-logo">
+        <img src="ford.png" alt="" />
+      </div>
+      <div class="login">
+        <form action="#" class="login-form" (ngSubmit)="login()">
+          <h2 class="login-title">Boas-Vindas</h2>
+          <mat-form-field>
+            <mat-label>nome</mat-label>
+            <input type="text" [(ngModel)]="nome" name="nome" matInput />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Senha</mat-label>
+            <input type="password" [(ngModel)]="senha" name="senha" matInput />
+          </mat-form-field>
 
+          <button mat-fab extended>Entrar</button>
+        </form>
+      </div>
+      <div class="copyright">
+        <p>&copy; Ford 2025 todos direitos reservados</p>
+      </div>
     </div>
-    <div class="parte2">
-        <form>
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" value="John"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" value="Doe"><br><br>
-            <input type="submit" value="Submit">
-          </form>           
-    </div>
+  </div>
 </div>

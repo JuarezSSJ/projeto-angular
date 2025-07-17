@@ -1,25 +1,120 @@
-<form [formGroup]="selectCarForms">
-    <select formControlName='carId'>
-        <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
-            {{vehicle.vehicle}}
-        </option>
-    </select>
-</form>
+<app-menu></app-menu>
+<app-menu></app-menu>
+<h2 class="text-primary text-center">Dashboard Ford</h2>
+<div class="d-flex align-items-center justify-content-evenly">
+  <div class="card w-25 mx-1">
+    <div class="card-header">Veiculo</div>
+    <div class="card-body">
+      <form [formGroup]="selectCarForms">
+        <select class="form-select my-2" name="" id="" formControlName="carId">
+          @for (vehicle of vehicles; track vehicle) {
+          <option [value]="vehicle.id">{{ vehicle.vehicle }}</option>
+          }
+        </select>
+      </form>
+    </div>
+  </div>
+  <div class="card w-25 mx-1">
+    <div class="card-header">Total de Vendas</div>
+    <div class="card-body">
+      @if (selectedVehicle) {
+      <h5 class="card-title">{{ selectedVehicle.volumetotal }}</h5>
+      } @else {
+      <h5 class="card-title">000</h5>
+      }
+      <p class="card-text text-primary">Unid.</p>
+    </div>
+  </div>
+  <div class="card w-25 mx-1">
+    <div class="card-header">Veiculos Conectados</div>
+    <div class="card-body">
+      @if (selectedVehicle) {
+      <h5 class="card-title">{{ selectedVehicle.connected }}</h5>
+      } @else {
+      <h5 class="card-title">000</h5>
+      }
+      <p class="card-text text-primary">Unid.</p>
+    </div>
+  </div>
+  <div class="card w-25 mx-1">
+    <div class="card-header">Software Atualizado</div>
+    <div class="card-body">
+      @if (selectedVehicle) {
+      <h5 class="card-title">{{ selectedVehicle.softwareUpdates }}</h5>
+      } @else {
+      <h5 class="card-title">000</h5>
+      }
+      <p class="card-text text-primary">Unid.</p>
+    </div>
+  </div>
+</div>
 
-<img *ngIf="selectedVehicle" [src]="selectedVehicle.img">
+<div class="container">
+  @if (selectedVehicle) {
+  <img
+    class="w-50 img-fluid d-block mx-auto"
+    [src]="selectedVehicle.img"
+    alt=""
+  />
+  }
+</div>
 
-
-<form [formGroup]="vinForm">
-    <input [formControl]="vinForm.controls.vin">
-</form>
-
-<div class="carro" *ngIf="carroVin">
-    <ul>
-        <li>{{carroVin.id}}</li>
-        <li>{{carroVin.lat}}</li>
-        <li>{{carroVin.long}}</li>
-        <li>{{carroVin.nivelCombustivel}}</li>
-        <li>{{carroVin.odometro}}</li>
-        <li>{{carroVin.status}}</li>
-    </ul>
+<div class="container-fluid position-absolute bottom-0">
+  <table class="table table-bordered border-1 table-primary">
+    <thead>
+      <tr>
+        <th>Codigo - Vin</th>
+        <th>Odômetro</th>
+        <th>Nivel de Combustivel</th>
+        <th>Status</th>
+        <th>Lat</th>
+        <th>Long</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+          <form [formGroup]="vinForm">
+            <input
+              class="form-control border border-primary"
+              type="text"
+              [formControl]="vinForm.controls.vin"
+            />
+          </form>
+        </th>
+        <!-- @if (carVin) {
+        <th>{{ carVin.odometro }}</th>
+        <th>{{ carVin.nivelCombustivel }}</th>
+        <th>{{ carVin.status }}</th>
+        <th>{{ carVin.lat }}</th>
+        <th>{{ carVin.long }}</th>
+        } -->
+        <th>
+          @if (carVin) {
+          {{ carVin.odometro }}
+          }
+        </th>
+        <th>
+          @if (carVin) {
+          {{ carVin.nivelCombustivel }}
+          }
+        </th>
+        <th>
+          @if (carVin) {
+          {{ carVin.status }}
+          }
+        </th>
+        <th>
+          @if (carVin) {
+          {{ carVin.lat }}
+          }
+        </th>
+        <th>
+          @if (carVin) {
+          {{ carVin.long }}
+          }
+        </th>
+      </tr>
+    </tbody>
+  </table>
 </div>

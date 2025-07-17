@@ -1,0 +1,43 @@
+.principal {
+  display: flex;
+}
+.img {
+  width: auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.container-right {
+  height: 100vh;
+  width: 500px;
+  background-color: #f2f2f2;
+  position: absolute;
+  right: 0;
+}
+.login-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.login-logo img {
+  width: 280px;
+  margin: 10px 0;
+}
+.login {
+  width: 100%;
+  padding: 0 2rem;
+}
+.login-title {
+  text-align: center;
+  margin: 1rem 0;
+  color: blue;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+.copyright {
+  margin: 1rem 0;
+}
